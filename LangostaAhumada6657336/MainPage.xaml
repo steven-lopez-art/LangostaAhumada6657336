@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LangostaAhumada6657336.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label Text="Langosta Ahumada" 
+                   FontAttributes="Bold" 
+                   FontSize="Large" 
+                   TextColor="White" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"/>
+            
+            <Label Text="Nombre Del Cliente" 
+                   FontSize="Caption" 
+                   FontAttributes="Bold"
+                   x:Name="nombre"/>
+            <Entry x:Name="nombreCliente"
+                   Placeholder="Ingrese Nombre" />
+
+            <Label Text="Numero De Platos" 
+                   FontSize="Caption" 
+                   FontAttributes="Bold"
+                   x:Name="numero"/>
+            <Entry x:Name="numeroPlatos"
+                   Placeholder="Ingrese Cantidad De Platos" />
+
+            <Button x:Name="calcularPago"
+                    BackgroundColor="BlueViolet" 
+                    Text="Calcular Pago" 
+                    FontSize="Caption" 
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Clicked="calcularPago_Clicked"/>
+
+            <Label Text="Total A Pagar" 
+                   FontSize="Caption" 
+                   FontAttributes="Bold"
+                   x:Name="resultadolabel"/>
+            <Entry x:Name="resultado"/>
+
+            
+            <ListView x:Name="listview" 
+                      FlexLayout.Grow="1" 
+                      HasUnevenRows="True" 
+                      ItemTapped="listview_ItemTapped">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+
+                                <Label Text="{Binding NombreCliente}" 
+                                       FontSize="17"
+                                       FontAttributes="Bold"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" 
+                                           Text="{Binding NumeroPlatos}"/>
+
+                                    <Label Grid.Column="2" 
+                                           Text="{Binding Pago}" 
+                                           FontAttributes="Bold"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
